@@ -1,14 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Country } from '../../models/country.model';
+import { CountryService } from '../../services/country.service';
 
 @Component({
   selector: 'app-for-country',
   templateUrl: './for-country.component.html'
 })
-export class ForCountryComponent implements OnInit {
+export class ForCountryComponent {
 
-  constructor() { }
+  error: boolean = false;
+  countries: Country[] = [];
 
-  ngOnInit(): void {
+  constructor( private countryService: CountryService ) { }
+
+  search( term: string ): void {
+    if (term) {
+      this.error = false;
+      this.countryService.searchCountry(term)
+        .subscribe( (countries: Country[]) => {
+          this.countries = countries;
+          console.log(countries)
+        },
+        err => {
+          this.error = true;
+          this.countries = [];
+        }
+        );
+    }
   }
 
+  suggestions( term: string ): void {
+    this.error = false; 
+  }
 }
