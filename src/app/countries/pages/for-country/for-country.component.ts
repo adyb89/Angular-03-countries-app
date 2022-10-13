@@ -19,7 +19,6 @@ export class ForCountryComponent {
       this.countryService.searchCountry(term)
         .subscribe( (countries: Country[]) => {
           this.countries = countries;
-          console.log(countries)
         },
         err => {
           this.error = true;
