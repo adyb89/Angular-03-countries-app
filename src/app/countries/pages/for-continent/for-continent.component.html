@@ -1,1 +1,25 @@
-<p>for-continent works!</p>
+<div class="animate__animated animate__fadeIn animate__faster">
+    <h3>Buscar por continente <small>{{ activeContinent | titlecase }}</small></h3>
+    <hr>
+    
+    <h5>Seleccione un continente</h5>
+    
+    <div class="row">
+        <div class="col">
+            <button 
+                *ngFor="let continent of continents"
+                [class]="classCSS(continent)"
+                (click)="activateContinent(continent)"
+            >
+                {{ continent | titlecase}}
+            </button>
+    
+            <div *ngIf="countries.length > 0">
+                <div class="col">
+                    <app-country-table [countries]="countries"></app-country-table>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+</div>

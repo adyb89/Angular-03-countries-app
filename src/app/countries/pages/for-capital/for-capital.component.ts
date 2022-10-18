@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Country } from '../../models/country.model';
 import { CountryService } from '../../services/country.service';
 
@@ -11,7 +12,8 @@ export class ForCapitalComponent {
   error: boolean = false;
   countries: Country[] = [];
 
-  constructor( private countryService: CountryService ) { }
+  constructor( private countryService: CountryService,
+               private router: Router) { }
 
   search( term: string ): void {
     if (term) {
@@ -23,6 +25,7 @@ export class ForCapitalComponent {
         err => {
           this.error = true;
           this.countries = [];
+          this.router.navigateByUrl('/country');
         }
         );
     }

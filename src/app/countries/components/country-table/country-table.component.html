@@ -10,7 +10,10 @@
     </thead>
 
     <tbody>
-        <tr *ngFor="let country of countries; let i = index">
+        <tr 
+            *ngFor="let country of countries; let i = index"
+            class="animate__animated animate__fadeIn animate__faster"
+        >
             <td> {{ i + 1 }} </td>
             <td>
                 <img 
@@ -22,7 +25,12 @@
             <td>{{ country?.capital}}, {{ country?.name }}</td>
             <td>{{ country?.population | number }}</td>
             <td>
-                <a [routerLink]="['/country', country?.alpha2Code?.toLowerCase()]">Ver...</a>
+                <a 
+                    [routerLink]="['/country', country?.alpha2Code?.toLowerCase()]"
+                    class="btn btn-outline-primary"
+                >
+                    Ver...
+                </a>
             </td>
         </tr>
     </tbody>

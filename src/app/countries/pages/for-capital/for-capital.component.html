@@ -1,22 +1,25 @@
-<h2>Por Capital</h2>
-<hr>
+<div class="animate__animated animate__fadeIn animate__faster">
 
-<div class="row">
+    <h2>Por Capital</h2>
+    <hr>
     
-    <div class="col">
+    <div class="row">
+        
+        <div class="col">
+        
+           <app-search
+                (onEnter)="search($event)"
+                (onDebouncer)="suggestions($event)"
+                placeholder="Buscar capital..."
+            >
+           </app-search>
     
-       <app-search
-            (onEnter)="search($event)"
-            (onDebouncer)="suggestions($event)"
-            placeholder="Buscar capital..."
-        >
-       </app-search>
-
+        </div>
+    
     </div>
-
+    
+    <hr>
 </div>
-
-<hr>
 
 <div *ngIf="error" class="alert alert-danger">
     No hay resultados
