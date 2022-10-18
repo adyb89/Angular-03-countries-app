@@ -10,7 +10,7 @@ const routes: Routes = [
     { path: '', component: ForCountryComponent, pathMatch: 'full' },
     { path: 'continent', component: ForContinentComponent },
     { path: 'capital', component: ForCapitalComponent },
-    { path: 'country/:search', component: SeeCountryComponent },
+    { path: 'country/:id', component: SeeCountryComponent },
     { path: '**', redirectTo: '' }
 ];
 
