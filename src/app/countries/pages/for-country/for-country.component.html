@@ -3,7 +3,7 @@
     <h2>Por País</h2>
     <hr>
     
-    <div class="row">
+    <div class="row first-index">
         
         <div class="col">
         
@@ -18,6 +18,26 @@
     
     </div>
     
+    <ul *ngIf="suggestedCountries.length > 0" class="list-group">
+        <li
+            *ngFor="let country of suggestedCountries"
+            class="list-group-item list-group-item-action"
+        >
+            <a             
+                [routerLink]="['/country', country.alpha2Code]"                
+            >
+                {{ country.name }}
+            </a>
+        </li>
+        <li class="list-group-item list-group-item-action">
+            <a             
+                (click)="searchSuggested(searchTerm)"                
+            >
+                Buscar "{{ searchTerm }}"
+            </a>
+        </li>
+    </ul>
+
     <hr>
 </div>
 
@@ -26,7 +46,7 @@
 </div>
 
 <div *ngIf="countries.length > 0" class="row">
-    <div class="col">
+    <div class="col first-index">
         <app-country-table [countries]="countries"></app-country-table>
     </div>
 </div>

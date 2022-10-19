@@ -1,0 +1,22 @@
+.first-index {
+    z-index: 1;
+    position: relative;
+}
+
+ul {
+    position: absolute;
+    top: 15%;
+    width: 55%;
+    z-index: 999;    
+}
+
+li {
+    background-color: white;
+    cursor: pointer;
+
+}
+
+a {
+    color: #0d6efd !important;
+    text-decoration: none !important;
+}
