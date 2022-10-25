@@ -16,27 +16,7 @@
     
         </div>
     
-    </div>
-    
-    <ul *ngIf="suggestedCountries.length > 0" class="list-group">
-        <li
-            *ngFor="let country of suggestedCountries"
-            class="list-group-item list-group-item-action"
-        >
-            <a             
-                [routerLink]="['/country', country.alpha2Code]"                
-            >
-                {{ country.name }}
-            </a>
-        </li>
-        <li class="list-group-item list-group-item-action">
-            <a             
-                (click)="searchSuggested(searchTerm)"                
-            >
-                Buscar "{{ searchTerm }}"
-            </a>
-        </li>
-    </ul>
+    </div>        
 
     <hr>
 </div>
@@ -50,3 +30,23 @@
         <app-country-table [countries]="countries"></app-country-table>
     </div>
 </div>
+
+<ul *ngIf="suggestedCountries.length > 0" class="list-group">
+    <li
+        *ngFor="let country of suggestedCountries"
+        class="list-group-item list-group-item-action"
+    >
+        <a             
+            [routerLink]="['/country', country.alpha2Code]"                
+        >
+            {{ country.name }}
+        </a>
+    </li>
+    <li class="list-group-item list-group-item-action">
+        <a             
+            (click)="searchSuggested(searchTerm)"                
+        >
+            Buscar "{{ searchTerm }}"
+        </a>
+    </li>
+</ul>
